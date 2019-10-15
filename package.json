@@ -1,0 +1,15 @@
+{
+  "name": "greeter-bot",
+  "version": "1.0.0",
+  "description": "My First Discord Bot",
+  "main": "bot.js",
+  "author": "Miguel Eduardo Pineda",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "google-images": "^2.1.0",
+    "googleapis": "^43.0.0",
+    "moment": "^2.24.0",
+    "mysql": "^2.17.1",
+    "winston": "^3.2.1"
+  }
+}
