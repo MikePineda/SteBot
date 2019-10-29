@@ -42,6 +42,7 @@ bot.on('ready', function (evt) {
 
 //repository
 var CancunPhotosRepository = require('./repositories/cancunPhotos');
+var PhotosRepository = require('./repositories/photos');
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -110,7 +111,28 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'Se agregó la imagen correctamente Tío'
                 });
 
+            case 'addSinWetzo':
+                console.log(args);
+                PhotosRepository.addPhoto(con , args[0], user, "boneless");
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'Se agregó la imagen correctamente Tío'
+                });
+
             break;
+
+            case 'sinwetzo':
+            case 'boneless':
+            case 'sinfkinwetzo':
+                PhotosRepository.getRandomPhotoByCategory(con,"boneless", function(result){
+                    var photo = result[0].photo_url;
+                    console.log(photo); // this is where you get the return value
+                    bot.sendMessage({
+                        to: channelID,
+                        message: photo
+                    });
+                });
+                break;
             // Just add any case commands if you want to..
          }
      }
